@@ -1,6 +1,6 @@
 # 🏥 FastAPI Hospital Management System
 
-A secure, scalable, and role-based Hospital Management System (HMS) built using **FastAPI**, **PostgreSQL**, and **JWT authentication**. This backend application supports patient registration, doctor management, appointment scheduling, and admin analytics.
+A **secure**, **scalable**, and **role-based Hospital Management System (HMS)** built with **FastAPI**, **PostgreSQL**, and **JWT authentication**. This backend API provides a robust architecture to manage core hospital functionalities such as **patient registration**, **doctor profile management**, **appointment scheduling**, and **admin-level analytics**. With clear separation of concerns and role-based access control, it ensures that each user—**Patient**, **Doctor**, or **Admin**—can securely interact with only the relevant parts of the system. Designed for scalability and extensibility, this backend serves as a reliable foundation for integrating a frontend dashboard, mobile app, or third-party healthcare services.
 
 ---
 
@@ -65,7 +65,7 @@ hospital_management/
 
 ### 1️⃣ Clone the Repo
 ```bash
-git clone https://github.com/yourusername/fastapi-hospital-management-system.git
+git clone https://github.com/Atharva1479/fastapi-hospital-management-system.git
 cd fastapi-hospital-management-system
 ```
 
