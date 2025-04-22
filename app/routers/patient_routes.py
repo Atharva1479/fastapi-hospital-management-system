@@ -42,3 +42,23 @@ def get_profile(
         city=profile.city,
         contact_number=profile.contact_number
     )
+
+@router.put("/profile", response_model=schemas.PatientResponse)
+def update_profile(
+    patient_data: schemas.PatientCreate,
+    db: Session = Depends(database.get_db),
+    current_user: models.User = Depends(auth.get_current_user)
+):
+    try:
+        profile = patient_service.update_patient_profile(db, current_user, patient_data)
+        return schemas.PatientResponse(
+            id=profile.id,
+            full_name=current_user.full_name,
+            email=current_user.email,
+            age=profile.age,
+            gender=profile.gender,
+            city=profile.city,
+            contact_number=profile.contact_number
+        )
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
