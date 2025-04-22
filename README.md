@@ -14,8 +14,8 @@ It supports **role-based access control** and is designed for scalability, makin
 - Passwords hashed using Bcrypt
 
 ### 👩‍⚕️ User Roles
-- **Patients**: Register, log in, book appointments, view appointment history
-- **Doctors**: Log in, manage their availability and appointments
+- **Patients**: Register, log in, update profile, book appointments, view appointment history
+- **Doctors**: Log in, update profile, manage their availability and appointments
 - **Admins**: Manage users, view system stats and appointment analytics
 
 ### 📅 Appointment Management
