@@ -1,6 +1,8 @@
 # 🏥 FastAPI Hospital Management System
 
-A **secure**, **scalable**, and **role-based Hospital Management System (HMS)** built with **FastAPI**, **PostgreSQL**, and **JWT authentication**. This backend API provides a robust architecture to manage core hospital functionalities such as **patient registration**, **doctor profile management**, **appointment scheduling**, and **admin-level analytics**. With clear separation of concerns and role-based access control, it ensures that each user—**Patient**, **Doctor**, or **Admin**—can securely interact with only the relevant parts of the system. Designed for scalability and extensibility, this backend serves as a reliable foundation for integrating a frontend dashboard, mobile app, or third-party healthcare services.
+A **secure**, **scalable**, and **Dockerized** Hospital Management System (HMS) backend built with **FastAPI**, **PostgreSQL**, and **JWT authentication**. This system provides a robust architecture for managing hospital functionalities like **patient registration**, **doctor profile management**, **appointment scheduling**, and **admin-level analytics**.
+
+It supports **role-based access control** and is designed for scalability, making it ideal for integration with a frontend dashboard, mobile app, or third-party healthcare platforms. Now fully containerized using **Docker & Docker Compose**, making deployment and scaling effortless across environments.
 
 ---
 
@@ -26,20 +28,25 @@ A **secure**, **scalable**, and **role-based Hospital Management System (HMS)** 
 - Daily appointment trends
 - Appointment count per doctor
 
+### 🐳 Dockerized Deployment
+- Easily run the entire project using `docker-compose`
+- Built-in PostgreSQL container for database
+- Environment-isolated and production-ready setup
+
 ---
 
 ## 🧱 Tech Stack
 
-| Layer        | Technology               |
-|--------------|---------------------------|
-| Backend      | FastAPI                   |
-| ORM          | SQLAlchemy                |
-| Database     | PostgreSQL                |
-| Auth         | JWT (using python-jose)   |
-| Passwords    | passlib (bcrypt)          |
-| Migrations   | Alembic (optional)        |
-| Date Parsing | python-dateutil           |
-
+| Layer         | Technology                |
+|---------------|---------------------------|
+| Backend       | FastAPI                   |
+| ORM           | SQLAlchemy                |
+| Database      | PostgreSQL (Dockerized)   |
+| Authentication| JWT (python-jose)         |
+| Password Hash | Passlib (bcrypt)          |
+| Migrations    | Alembic (optional)        |
+| Environment   | Docker & Docker Compose   |
+| Date Parsing  | python-dateutil           |
 ---
 
 ## 📁 Project Structure
@@ -47,15 +54,17 @@ A **secure**, **scalable**, and **role-based Hospital Management System (HMS)** 
 ```
 hospital_management/
 ├── app/
-│   ├── main.py
-│   ├── models.py
-│   ├── schemas.py
-│   ├── database.py
-│   ├── auth.py
-│   ├── services/
-│   ├── routers/
-├── .env
-├── requirements.txt
+│   ├── main.py               # Entry point
+│   ├── models.py             # SQLAlchemy models
+│   ├── schemas.py            # Pydantic schemas
+│   ├── database.py           # DB connection and session
+│   ├── auth.py               # JWT Auth logic
+│   ├── services/             # Business logic
+│   ├── routers/              # Route handlers
+├── .env                      # Env variables
+├── requirements.txt          # Python dependencies
+├── Dockerfile                # App Docker config
+├── docker-compose.yml        # Docker multi-service config
 ├── README.md
 ```
 
@@ -96,6 +105,22 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 uvicorn app.main:app --reload
 ```
 
+## 🐳 Dockerized Setup (Recommended)
+
+### 📦 Prerequisites
+- Install [Docker Desktop](https://www.docker.com/products/docker-desktop)
+- Ensure `docker` and `docker-compose` work from the terminal
+
+### 🚀 Run with Docker Compose
+```bash
+docker-compose up --build
+```
+
+📌 This will:
+- Build the FastAPI app container
+- Start a PostgreSQL container pre-configured with `hospital_db`
+- Mount source files and expose API at [http://localhost:8000/docs](http://localhost:8000/docs)
+
 ---
 
 ## ✅ API Modules
@@ -116,5 +141,4 @@ uvicorn app.main:app --reload
 - React-based Frontend UI
 - Email notifications for appointments
 - PDF report downloads for admin
-- Docker support for deployment
 - Integration with calendar APIs
