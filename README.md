@@ -28,7 +28,7 @@ It supports **role-based access control** and is designed for scalability, makin
 - Daily appointment trends
 - Appointment count per doctor
 
-  ### 🐳 Dockerized Deployment
+### 🐳 Dockerized Deployment
 - Easily run the entire project using `docker-compose`
 - Built-in PostgreSQL container for database
 - Environment-isolated and production-ready setup
